@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-brand-600 text-white font-semibold rounded-lg hover:bg-brand-700 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-accent-500 text-white font-semibold rounded-lg hover:bg-accent-600 transition-colors;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-brand-600 text-brand-600 font-semibold rounded-lg hover:bg-brand-50 transition-colors;
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-5xl font-heading font-bold text-neutral-900 mb-6;
+  }
+
+  .section-subtitle {
+    @apply text-xl text-neutral-600 mb-12;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow;
+  }
+}
