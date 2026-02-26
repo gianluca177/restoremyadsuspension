@@ -1,0 +1,259 @@
+---
+const site = {
+  brand: "ADRESTORE",
+  tagline: "MARKETING",
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdRestore — Google Ads Suspension Recovery</title>
+
+    <style>
+      :root{
+        --bg1:#051a33;
+        --bg2:#06162b;
+        --panel:#071c34;
+        --text:#eaf2ff;
+        --muted:#b8c7e6;
+        --accent:#4fb4ff;
+        --mint:#48e0c6;
+      }
+
+      *{box-sizing:border-box}
+
+      body{
+        margin:0;
+        font-family: ui-sans-serif, system-ui;
+        color:var(--text);
+        background:#06162b;
+      }
+
+      a{text-decoration:none;color:inherit}
+
+      .wrap{
+        max-width:1200px;
+        margin:0 auto;
+        padding:0 28px;
+      }
+
+      /* ================= NAV ================= */
+
+      header{
+        position:absolute;
+        width:100%;
+        z-index:20;
+      }
+
+      .nav{
+        height:76px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+      }
+
+      .brand img{
+        height:45px;
+        width:auto;
+      }
+
+      .btn{
+        padding:12px 22px;
+        border-radius:999px;
+        background:linear-gradient(180deg,#7fd1ff,#55aef7);
+        color:#06213a;
+        font-weight:700;
+      }
+
+      /* ================= HERO ================= */
+
+      .hero{
+        position:relative;
+        padding:120px 0 80px;
+        min-height:100vh;
+        display:flex;
+        align-items:center;
+        background-image:url('/images/hero-background.png');
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
+      }
+
+      /* Dark overlay for readability */
+      .hero::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        background:linear-gradient(
+          180deg,
+          rgba(5,20,40,.85),
+          rgba(5,20,40,.95)
+        );
+        z-index:0;
+      }
+
+      .heroGrid{
+        position:relative;
+        z-index:1;
+        display:grid;
+        grid-template-columns:1.05fr .95fr;
+        gap:46px;
+        align-items:center;
+      }
+
+      h1{
+        margin:0 0 14px;
+        font-size:54px;
+        line-height:1.06;
+        letter-spacing:-.7px;
+      }
+
+      .blue{color:var(--accent)}
+      .mint{color:var(--mint)}
+
+      .bullets{
+        margin:18px 0;
+        padding:0;
+        list-style:none;
+      }
+
+      .bullets li{
+        margin-bottom:10px;
+      }
+
+      .ctaPrimary{
+        padding:14px 22px;
+        border-radius:999px;
+        background:linear-gradient(180deg,#7fd1ff,#55aef7);
+        color:#06213a;
+        font-weight:800;
+        display:inline-block;
+        margin-top:15px;
+      }
+
+      .guarantee{
+        margin-top:14px;
+        font-size:13.5px;
+        opacity:.8;
+      }
+
+      /* ================= RIGHT IMAGE ================= */
+
+      .visual{
+        position:relative;
+        display:flex;
+        justify-content:center;
+      }
+
+      .glow{
+        position:absolute;
+        width:420px;
+        height:420px;
+        border-radius:50%;
+        background:radial-gradient(circle, rgba(72,224,198,.5), transparent 70%);
+        z-index:0;
+      }
+
+      .phone{
+        position:relative;
+        width:380px;
+        max-width:100%;
+        z-index:1;
+        filter:drop-shadow(0 30px 80px rgba(0,0,0,.6));
+      }
+
+      .phone img{
+        width:100%;
+        height:auto;
+      }
+
+      /* ================= RESPONSIVE ================= */
+
+      @media(max-width:980px){
+        .heroGrid{
+          grid-template-columns:1fr;
+          text-align:center;
+        }
+
+        h1{
+          font-size:42px;
+        }
+
+        .visual{
+          margin-top:40px;
+        }
+      }
+
+      @media(max-width:520px){
+        h1{
+          font-size:34px;
+        }
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <!-- NAV -->
+    <header>
+      <div class="wrap">
+        <div class="nav">
+          <a class="brand" href="/">
+            <img src="/images/navbar-logo.png" alt="AdRestore Logo" />
+          </a>
+
+          <a class="btn" href="/contact">Contact Us</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="heroGrid">
+
+          <!-- LEFT -->
+          <div>
+            <h1>
+              We’re a <span class="blue">Google Ads Agency</span><br />
+              That Fixes & <span class="mint">Scales</span><br />
+              <span class="mint">Suspended Accounts</span>
+            </h1>
+
+            <ul class="bullets">
+              <li>✔ Reinstated in Under 7 Days</li>
+              <li>✔ Post-Restoration Support Included</li>
+              <li>✔ Agency Access — No Login Required</li>
+            </ul>
+
+            <a class="ctaPrimary" href="/start">
+              Fix Your Google Suspension
+            </a>
+
+            <div class="guarantee">
+              No Fix? No Charge. 100% Refund Guarantee.
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="visual">
+            <div class="glow"></div>
+
+            <div class="phone">
+              <img
+                src="/images/hero-image.png"
+                alt="Google Ads Account Reactivated"
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>
