@@ -1,0 +1,280 @@
+---
+import TickIcon from '../ui/Tickicon.astro';
+import LiveConsultIcon from '../ui/LiveConsultIcon.astro';
+import SectionContainer from '../ui/SectionContainer.astro';
+import TickList from '../ui/TickList.astro';
+import CTAGroup from '../ui/CTAGroup.astro';
+---
+
+<section class="hero">
+  <SectionContainer>
+    <div class="heroGrid">
+
+      <!-- LEFT -->
+      <div class="content">
+
+        <h1>
+          <span class="blue">Restore Your Suspended</span><br />
+          Google Ads Account<br />
+          <span class="mint">Prevent Future Suspensions.</span>
+        </h1>
+
+        <p class="sub">
+          We assess recoverability and professionally manage the appeal process —
+          including 7-day post-restoration support to help keep your account stable.
+        </p>
+
+        <TickList
+          items={[
+            "7-Day Post-Restoration Support",
+            "Agency Access — No Password Required",
+            "Full Refund If Unsuccessful"
+          ]} />
+
+        <!-- MOBILE IMAGE -->
+        <div class="visual visualMobile">
+          <div class="glow"></div>
+          <div class="phone">
+            <img src="/images/hero-image.png"
+                 alt="Google Ads Account Reinstated Email Confirmation" />
+          </div>
+        </div>
+
+        <CTAGroup
+          href="https://calendly.com/gianluca-adrestore/30min-consultation"
+          text="Book Suspension Review"
+          assessmentText="Free 30-Minute Live Account Assessment"
+        />
+
+      </div>
+
+      <!-- DESKTOP IMAGE -->
+      <div class="visual visualDesktop">
+        <div class="glow glowDesktop"></div>
+        <div class="phone phoneDesktop">
+          <img src="/images/hero-image.png"
+               alt="Google Ads Account Reinstated Email Confirmation" />
+        </div>
+      </div>
+
+    </div>
+  </SectionContainer>
+</section>
+
+<style>
+.wrap{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  position:relative;
+  padding:120px 0 80px;
+  overflow:hidden;
+  background-image:url('/images/hero-background.png');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(5,20,40,.88),
+    rgba(5,20,40,.96)
+  );
+  z-index:0;
+}
+
+.heroGrid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:30px;
+  align-items:center;
+}
+
+.content{
+  text-align:left;
+}
+
+/* ================= MOBILE ================= */
+
+h1{
+  margin:0 0 14px;
+  font-size:28px;
+  line-height:1.18;
+  letter-spacing:-.4px;
+}
+
+.sub{
+  margin:0 0 16px;
+  font-size:15px;
+  line-height:1.5;
+  opacity:.88;
+}
+
+.blue{color:#4fb4ff;}
+.mint{color:#48e0c6;}
+
+.bullets{
+  margin:16px 0 18px;
+  padding:0;
+  list-style:none;
+}
+
+.bullets li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:12px;
+  font-size:14.5px;
+}
+
+.ctaPrimary{
+  padding:14px 26px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#7fd1ff,#55aef7);
+  color:#06213a;
+  font-weight:800;
+  display:block;
+  text-align:center;
+  margin-top:14px;
+}
+
+.assessment{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-top:10px;
+  font-size:13px;
+  opacity:.85;
+}
+
+/* ================= VISUAL ================= */
+
+.visual{
+  position:relative;
+  display:flex;
+  justify-content:center;
+}
+
+.phone{
+  position:relative;
+  width:100%;
+  max-width:420px;
+  z-index:1;
+}
+
+.phone img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.glow{
+  position:absolute;
+  width:380px;
+  height:380px;
+  border-radius:50%;
+  background:radial-gradient(circle,
+    rgba(72,224,198,.55) 0%,
+    rgba(72,224,198,.22) 35%,
+    rgba(72,224,198,0) 72%
+  );
+  filter:blur(2px);
+  z-index:0;
+}
+
+.visualDesktop{display:none;}
+.visualMobile{display:flex;}
+
+sup{
+  font-size:10px;
+  vertical-align:super;
+}
+
+/* ================= DESKTOP ================= */
+
+@media(min-width:980px){
+
+  .heroGrid{
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:end;
+  }
+
+  /* ===== HEADLINE ===== */
+
+  h1{
+    font-size:42px;
+    line-height:1.15;
+    max-width:760px; /* extended so mint fits one line */
+  }
+
+  h1 br{
+    display:none;
+  }
+
+  .mint{
+    white-space:nowrap; /* force single line */
+  }
+
+  .sub{
+    font-size:18px;
+    margin-bottom:18px;
+  }
+
+  /* ===== DESKTOP IMAGE ===== */
+
+  .visualDesktop{
+    display:flex;
+    align-items:flex-end;
+    justify-content:flex-end;
+    position:relative;
+  }
+
+  .visualMobile{
+    display:none;
+  }
+
+  .phoneDesktop{
+    position:absolute;
+    bottom:-80px;      /* keeps bottom touching section */
+    right:-40px;       /* slight shift left for centering balance */
+    max-width:960px;   /* larger = focal point */
+    transform:scale(1.125); /* scale up */
+    transform-origin:bottom right; /* scale from bottom right */
+    z-index:1;
+  }
+
+  /* ===== GLOW (move up with phone) ===== */
+
+  .glowDesktop{
+    position:absolute;
+    width: 480px;
+    height:480px;
+    top:-470px;           /* moved upward */
+    left:52%;
+    transform:translateX(-50%);
+    background:radial-gradient(circle,
+      rgba(72,224,198,.55) 5%,
+      rgba(72,224,198,.22) 35%,
+      rgba(72,224,198,0) 60%
+    );
+    filter:blur(3px);
+    z-index:0;
+  }
+
+  .ctaPrimary{display:inline-block;}
+  .assessment{justify-content:flex-start;}
+}
+</style>

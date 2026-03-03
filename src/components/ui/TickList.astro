@@ -1,0 +1,35 @@
+---
+import TickIcon from './Tickicon.astro';
+
+interface Props {
+  items: string[];
+  class?: string;
+}
+
+const { items, class: className = "" } = Astro.props;
+---
+
+<ul class={`tickList ${className}`}>
+  {items.map((item) => (
+    <li>
+      <TickIcon />
+      <span set:html={item} />
+    </li>
+  ))}
+</ul>
+
+<style>
+.tickList{
+  margin:16px 0 18px;
+  padding:0;
+  list-style:none;
+}
+
+.tickList li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:12px;
+  font-size:14.5px;
+}
+</style>

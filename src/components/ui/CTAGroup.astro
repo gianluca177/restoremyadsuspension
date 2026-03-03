@@ -1,0 +1,44 @@
+---
+import PrimaryButton from './PrimaryButton.astro';
+import LiveConsultIcon from './LiveConsultIcon.astro';
+
+interface Props {
+  href: string;
+  text: string;
+  assessmentText: string;
+}
+
+const { href, text, assessmentText } = Astro.props;
+---
+
+<div class="ctaGroup">
+  <PrimaryButton href={href} text={text} />
+
+  <div class="assessment">
+    <LiveConsultIcon />
+    <span>{assessmentText}</span>
+  </div>
+</div>
+
+<style>
+.ctaGroup{
+  margin-top:14px;
+}
+
+.assessment{
+  display:flex;
+  align-items:center;
+  justify-content:center;   /* mobile centered */
+  gap:8px;
+  margin-top:10px;
+  font-size:13px;
+  opacity:.85;
+}
+
+@media(min-width:980px){
+  .assessment{
+    justify-content:flex-start; /* desktop left-aligned */
+    text-align: left;
+  }
+}
+</style>

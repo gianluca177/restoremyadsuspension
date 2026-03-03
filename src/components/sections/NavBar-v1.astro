@@ -1,0 +1,52 @@
+---
+const site = {
+  brand: "ADRESTORE",
+  tagline: "MARKETING",
+};
+---
+
+<header>
+  <div class="wrap">
+    <div class="nav">
+      <a class="brand" href="/">
+        <img src="/images/navbar-logo.png" alt="AdRestore Logo" />
+      </a>
+
+      <a class="btn" href="/contact">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  header{
+    position:absolute;
+    width:100%;
+    z-index:20;
+  }
+
+  .wrap{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  .nav{
+    height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .brand img{
+    height:45px;
+    width:auto;
+  }
+
+  .btn{
+    padding:12px 22px;
+    border-radius:999px;
+    background:linear-gradient(180deg,#7fd1ff,#55aef7);
+    color:#06213a;
+    font-weight:700;
+  }
+</style>

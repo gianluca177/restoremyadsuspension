@@ -1,0 +1,21 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<div class={`section-container ${className}`}>
+  <slot />
+</div>
+
+<style>
+.section-container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 20px;
+  position:relative;
+  z-index:2;
+}
+</style>
