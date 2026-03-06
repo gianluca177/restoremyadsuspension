@@ -8,7 +8,11 @@ interface Props {
   assessmentText: string;
 }
 
-const { href, text, assessmentText } = Astro.props;
+const {
+  href = "https://calendly.com/gianluca-adrestore/30min-consultation",
+  text = "Book Suspension Review",
+  assessmentText = "Free 30-Minute Live Account Assessment"
+} = Astro.props;
 ---
 
 <div class="ctaGroup">
