@@ -1,0 +1,357 @@
+---
+import CTAGroup from "../../components/ui/CTAGroup.astro";
+---
+
+<section class="bg-[#04101f] py-24 text-white">
+
+<div class="max-w-xl mx-auto px-6">
+
+<!-- HEADLINE -->
+
+<h2 class="text-3xl font-semibold text-center mb-4">
+How Suspended Google Ads Accounts Are Restored
+</h2>
+
+<p class="text-gray-400 text-center mb-12">
+Successful reinstatements require structured policy analysis,
+not repeated emotional appeals.
+</p>
+
+<!-- TABS -->
+
+<div class="flex justify-between mb-12 border-b border-gray-700">
+
+<button class="tab-btn text-xs tracking-wider pb-3 text-white border-b-2 border-[#FF4D4D]" data-tab="audit">AUDIT</button>
+
+<button class="tab-btn text-xs tracking-wider pb-3 text-gray-400" data-tab="appeal">APPEAL</button>
+
+<button class="tab-btn text-xs tracking-wider pb-3 text-gray-400" data-tab="restore">RESTORE</button>
+
+<button class="tab-btn text-xs tracking-wider pb-3 text-gray-400" data-tab="support">SUPPORT</button>
+
+</div>
+
+<!-- FRAME -->
+
+<div id="framework-frame" class="rounded-xl border border-gray-700 bg-[#081826] p-7 touch-pan-y">
+
+<!-- TITLE -->
+
+<h3 id="tab-title" class="text-lg font-semibold mb-2">
+AUDIT
+</h3>
+
+<div id="title-underline" class="h-[2px] w-12 bg-[#FF4D4D] mb-6 opacity-0"></div>
+
+<!-- BULLETS -->
+
+<ul id="tab-bullets" class="space-y-4 text-sm mb-8">
+
+<li class="bullet flex items-start gap-3 opacity-0">
+<svg class="tick w-5 h-5 mt-[2px]" viewBox="0 0 24 24" fill="#FF4D4D">
+<path d="M9 16.2l-3.5-3.5L4 14.2 9 19l12-12-1.5-1.5z"/>
+</svg>
+<span class="bullet-text text-gray-500">
+Identify the suspension trigger
+</span>
+</li>
+
+<li class="bullet flex items-start gap-3 opacity-0">
+<svg class="tick w-5 h-5 mt-[2px]" viewBox="0 0 24 24" fill="#FF4D4D">
+<path d="M9 16.2l-3.5-3.5L4 14.2 9 19l12-12-1.5-1.5z"/>
+</svg>
+<span class="bullet-text text-gray-500">
+Review account risk signals
+</span>
+</li>
+
+<li class="bullet flex items-start gap-3 opacity-0">
+<svg class="tick w-5 h-5 mt-[2px]" viewBox="0 0 24 24" fill="#FF4D4D">
+<path d="M9 16.2l-3.5-3.5L4 14.2 9 19l12-12-1.5-1.5z"/>
+</svg>
+<span class="bullet-text text-gray-500">
+Determine recovery eligibility
+</span>
+</li>
+
+</ul>
+
+<!-- IMAGE -->
+
+<img
+id="tab-image"
+src="/images/Suspended.png"
+class="rounded-lg w-full cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+alt="Framework Step"
+/>
+
+</div>
+
+<!-- CTA -->
+
+<div class="mt-12 flex justify-center">
+
+<CTAGroup
+href="https://calendly.com/gianluca-adrestore/30min-consultation"
+text="Book Suspension Review"
+assessmentText="Free 30-Minute Live Account Assessment"
+/>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- LIGHTBOX -->
+
+<div id="lightbox" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-6">
+
+<img id="lightbox-img" class="max-w-full max-h-full rounded-lg"/>
+
+</div>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+const steps = {
+
+audit:{
+image:"/images/Suspended.png",
+color:"#FF4D4D",
+bullets:[
+"Identify the suspension trigger",
+"Review account risk signals",
+"Determine recovery eligibility"
+]
+},
+
+appeal:{
+image:"/images/Appeal.png",
+color:"#FFFFFF",
+bullets:[
+"Prepare a structured appeal",
+"Align explanation with policy",
+"Submit review-ready case"
+]
+},
+
+restore:{
+image:"/images/Accepted.png",
+color:"#3BA6FF",
+bullets:[
+"Account reinstatement confirmed",
+"Ads regain delivery capability",
+"Access restored to campaigns"
+]
+},
+
+support:{
+image:"/images/Accepted.png",
+color:"#22C1A5",
+bullets:[
+"Monitor account stability",
+"Prevent re-suspension risks",
+"Provide post-restore guidance"
+]
+}
+
+}
+
+const buttons=document.querySelectorAll(".tab-btn")
+const bulletsContainer=document.getElementById("tab-bullets")
+const image=document.getElementById("tab-image")
+const underline=document.getElementById("title-underline")
+
+function activateTab(btn){
+
+buttons.forEach(b=>{
+b.classList.remove("text-white","border-b-2")
+b.classList.add("text-gray-400")
+b.style.borderColor="transparent"
+})
+
+btn.classList.add("text-white","border-b-2")
+
+const key=btn.dataset.tab
+const step=steps[key]
+
+btn.style.borderColor=step.color
+
+underline.style.background=step.color
+underline.style.opacity=0
+underline.style.width="0px"
+
+image.src=step.image
+
+bulletsContainer.innerHTML=step.bullets.map(b=>`
+<li class="bullet flex items-start gap-3 opacity-0">
+<svg class="tick w-5 h-5 mt-[2px]" viewBox="0 0 24 24" fill="${step.color}">
+<path d="M9 16.2l-3.5-3.5L4 14.2 9 19l12-12-1.5-1.5z"/>
+</svg>
+<span class="bullet-text text-gray-500">${b}</span>
+</li>
+`).join("")
+
+setTimeout(()=>{
+
+underline.style.transition="all .4s ease"
+underline.style.width="48px"
+underline.style.opacity=1
+
+},150)
+
+animateBullets(step.color)
+
+}
+
+function animateBullets(color){
+
+const bullets=document.querySelectorAll(".bullet")
+
+bullets.forEach((bullet,i)=>{
+
+setTimeout(()=>{
+
+bullet.style.transition="opacity .4s ease"
+bullet.style.opacity=1
+
+bullet.querySelector(".bullet-text").style.color="#D1D5DB"
+
+},300+(i*180))
+
+})
+
+}
+
+
+
+buttons.forEach(btn=>{
+btn.addEventListener("click",()=>activateTab(btn))
+})
+
+
+
+/* SWIPE SUPPORT */
+
+let startX=0
+let endX=0
+
+const frame=document.getElementById("framework-frame")
+
+frame.addEventListener("touchstart",(e)=>{
+startX=e.touches[0].clientX
+})
+
+frame.addEventListener("touchend",(e)=>{
+endX=e.changedTouches[0].clientX
+handleSwipe()
+})
+
+function handleSwipe(){
+
+const threshold=50
+const diff=startX-endX
+
+if(Math.abs(diff)<threshold)return
+
+const activeBtn=document.querySelector(".tab-btn.text-white")
+const buttonsArray=Array.from(buttons)
+const index=buttonsArray.indexOf(activeBtn)
+
+if(diff>0){
+
+const next=buttonsArray[index+1]
+if(next)activateTab(next)
+
+}else{
+
+const prev=buttonsArray[index-1]
+if(prev)activateTab(prev)
+
+}
+
+}
+
+
+
+/* TAP NAVIGATION */
+
+frame.addEventListener("click",(e)=>{
+
+const rect=frame.getBoundingClientRect()
+const clickX=e.clientX-rect.left
+const midpoint=rect.width/2
+
+const activeBtn=document.querySelector(".tab-btn.text-white")
+const buttonsArray=Array.from(buttons)
+const index=buttonsArray.indexOf(activeBtn)
+
+if(clickX>midpoint){
+
+const next=buttonsArray[index+1]
+if(next)activateTab(next)
+
+}else{
+
+const prev=buttonsArray[index-1]
+if(prev)activateTab(prev)
+
+}
+
+})
+
+
+
+/* LIGHTBOX */
+
+const lightbox=document.getElementById("lightbox")
+const lightboxImg=document.getElementById("lightbox-img")
+
+image.addEventListener("click",()=>{
+
+lightboxImg.src=image.src
+lightbox.classList.remove("hidden")
+lightbox.classList.add("flex")
+
+})
+
+lightbox.addEventListener("click",()=>{
+
+lightbox.classList.remove("flex")
+lightbox.classList.add("hidden")
+
+})
+
+})
+
+// Scroll trigger animation
+
+const observer = new IntersectionObserver((entries) => {
+
+  entries.forEach(entry => {
+
+    if(entry.isIntersecting){
+
+      const activeBtn = document.querySelector(".tab-btn.text-white");
+
+      if(activeBtn){
+        activateTab(activeBtn);
+      }
+
+      observer.disconnect();
+
+    }
+
+  });
+
+},{ threshold: 0.4 });
+
+observer.observe(document.getElementById("framework-frame"));
+
+</script>

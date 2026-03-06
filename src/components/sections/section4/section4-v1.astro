@@ -1,0 +1,147 @@
+---
+import SectionContainer from "../../../components/ui/SectionContainer.astro";
+import CTAGroup from "../../../components/ui/CTAGroup.astro";
+
+const proofImages = [
+  { src: "/images/proof1.png", label: "Reinstatement Confirmation" },
+  { src: "/images/proof2.png", label: "Account Access Restored" },
+  { src: "/images/proof3.png", label: "Appeal Accepted" },
+  { src: "/images/proof4.png", label: "Policy Review Completed" },
+  { src: "/images/proof5.png", label: "Suspension Removed" },
+  { src: "/images/proof6.png", label: "Account Reactivated" },
+  { src: "/images/proof7.png", label: "Appeal Decision Email" },
+  { src: "/images/proof8.png", label: "Account Enabled Again" },
+  { src: "/images/proof9.png", label: "Ads Delivery Restored" }
+];
+---
+
+<section class="bg-[#04101f] py-24">
+
+<SectionContainer>
+
+<!-- HEADER -->
+
+<div class="text-center max-w-3xl mx-auto">
+
+<p class="text-sm tracking-[0.25em] text-[#6ee7d8] uppercase mb-3">
+Proof
+</p>
+
+<h2 class="text-3xl md:text-5xl font-semibold text-white">
+Real Google Ads Reinstatement Outcomes
+</h2>
+
+<p class="mt-5 text-white/70 text-lg">
+Examples of real suspension outcomes, reinstatement confirmations, and restored
+account access after structured review preparation.
+</p>
+
+</div>
+
+
+<!-- GRID -->
+
+<div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+{proofImages.map((item) => (
+
+<div class="proof-card">
+
+<img
+src={item.src}
+alt={item.label}
+loading="lazy"
+class="proof-image"
+/>
+
+<p class="proof-caption">{item.label}</p>
+
+</div>
+
+))}
+
+</div>
+
+
+<!-- CTA -->
+
+<div class="mt-16 text-center">
+
+<CTAGroup
+href="https://calendly.com/gianluca-adrestore/30min-consultation"
+text="Book Suspension Review"
+assessmentText="Free 30-Minute Live Account Assessment"
+/>
+
+</div>
+
+</SectionContainer>
+
+
+<!-- LIGHTBOX -->
+
+<div id="lightbox" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-6">
+
+<img id="lightbox-img" class="max-w-full max-h-full rounded-lg"/>
+
+</div>
+
+</section>
+
+
+<style>
+
+.proof-card{
+cursor:pointer;
+}
+
+.proof-image{
+width:100%;
+border-radius:12px;
+transition:transform .35s ease;
+}
+
+.proof-card:hover .proof-image{
+transform:scale(1.04);
+}
+
+.proof-caption{
+margin-top:8px;
+text-align:center;
+font-size:13px;
+color:rgba(255,255,255,.65);
+}
+
+</style>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const images=document.querySelectorAll(".proof-image")
+const lightbox=document.getElementById("lightbox")
+const lightboxImg=document.getElementById("lightbox-img")
+
+
+images.forEach(img=>{
+
+img.addEventListener("click",()=>{
+
+lightboxImg.src=img.src
+lightbox.classList.remove("hidden")
+
+})
+
+})
+
+
+lightbox.addEventListener("click",()=>{
+
+lightbox.classList.add("hidden")
+
+})
+
+})
+
+</script>
