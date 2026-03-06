@@ -1,0 +1,159 @@
+---
+import CTAGroup from "../../components/ui/CTAGroup.astro";
+---
+
+<section class="bg-[#04101f] py-24 text-white">
+
+  <div class="max-w-xl mx-auto px-6">
+
+    <!-- HEADLINE -->
+    <h2 class="text-3xl font-semibold text-center mb-4">
+      How Suspended Google Ads Accounts Are Restored
+    </h2>
+
+    <!-- SUBHEADLINE -->
+    <p class="text-gray-400 text-center mb-12">
+      Successful reinstatements require structured policy analysis,
+      not repeated emotional appeals.
+    </p>
+
+    <!-- TABS -->
+    <div class="flex justify-between mb-12 border-b border-gray-700">
+
+      <button class="tab-btn text-xs tracking-wider pb-3 text-white border-b-2 border-[#FF8C2A]" data-tab="audit">
+        AUDIT
+      </button>
+
+      <button class="tab-btn text-xs tracking-wider pb-3 text-gray-400" data-tab="appeal">
+        APPEAL
+      </button>
+
+      <button class="tab-btn text-xs tracking-wider pb-3 text-gray-400" data-tab="restore">
+        RESTORE
+      </button>
+
+      <button class="tab-btn text-xs tracking-wider pb-3 text-gray-400" data-tab="support">
+        SUPPORT
+      </button>
+
+    </div>
+
+    <!-- FRAME -->
+    <div class="rounded-xl border border-gray-700 bg-[#081826] p-6">
+
+      <!-- IMAGE -->
+      <img
+        id="tab-image"
+        src="https://placehold.co/600x350"
+        class="rounded-lg mb-6 w-full"
+        alt="Step Image"
+      />
+
+      <!-- TITLE -->
+      <h3 id="tab-title" class="text-lg font-semibold mb-4">
+        AUDIT
+      </h3>
+
+      <!-- BULLETS -->
+      <ul id="tab-bullets" class="space-y-2 text-gray-300 text-sm">
+        <li>Identify the suspension trigger</li>
+        <li>Review account risk signals</li>
+        <li>Determine recovery eligibility</li>
+      </ul>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 flex justify-center">
+
+      <CTAGroup
+        href="https://calendly.com/gianluca-adrestore/30min-consultation"
+        text="Book Suspension Review"
+        assessmentText="Free 30-Minute Live Account Assessment"
+      />
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+const steps = {
+
+  audit: {
+    title: "AUDIT",
+    bullets: [
+      "Identify the suspension trigger",
+      "Review account risk signals",
+      "Determine recovery eligibility"
+    ]
+  },
+
+  appeal: {
+    title: "APPEAL",
+    bullets: [
+      "Prepare a structured appeal",
+      "Align explanation with policy",
+      "Submit review-ready case"
+    ]
+  },
+
+  restore: {
+    title: "RESTORE",
+    bullets: [
+      "Account reinstatement confirmed",
+      "Ads regain delivery capability",
+      "Access restored to campaigns"
+    ]
+  },
+
+  support: {
+    title: "SUPPORT",
+    bullets: [
+      "Monitor account stability",
+      "Prevent re-suspension risks",
+      "Provide post-restore guidance"
+    ]
+  }
+
+};
+
+
+const buttons = document.querySelectorAll(".tab-btn");
+const title = document.getElementById("tab-title");
+const bullets = document.getElementById("tab-bullets");
+
+
+buttons.forEach((btn) => {
+
+  btn.addEventListener("click", () => {
+
+    buttons.forEach((b) => {
+      b.classList.remove("text-white","border-[#FF8C2A]","border-b-2");
+      b.classList.add("text-gray-400");
+    });
+
+    btn.classList.add("text-white","border-[#FF8C2A]","border-b-2");
+    btn.classList.remove("text-gray-400");
+
+    const key = btn.dataset.tab;
+    const tab = steps[key];
+
+    title.textContent = tab.title;
+
+    bullets.innerHTML = tab.bullets
+      .map((bullet) => `<li>${bullet}</li>`)
+      .join("");
+
+  });
+
+});
+
+});
+
+</script>

@@ -1,0 +1,176 @@
+---
+const steps = [
+  {
+    id: "audit",
+    title: "AUDIT",
+    bullets: [
+      "Identify the suspension trigger",
+      "Review account risk signals",
+      "Determine recovery eligibility"
+    ]
+  },
+  {
+    id: "appeal",
+    title: "APPEAL",
+    bullets: [
+      "Prepare a structured appeal",
+      "Align explanation with policy",
+      "Submit review-ready case"
+    ]
+  },
+  {
+    id: "restore",
+    title: "RESTORE",
+    bullets: [
+      "Account reinstatement confirmed",
+      "Ads regain delivery capability",
+      "Access restored to campaigns"
+    ]
+  },
+  {
+    id: "support",
+    title: "SUPPORT",
+    bullets: [
+      "Monitor account stability",
+      "Prevent re-suspension risks",
+      "Provide post-restore guidance"
+    ]
+  }
+];
+---
+
+<section class="py-20 bg-[#04101f] text-white">
+
+  <div class="max-w-xl mx-auto px-6">
+
+    <!-- HEADLINE -->
+    <h2 class="text-2xl font-semibold text-center mb-4">
+      How Suspended Google Ads Accounts Are Restored
+    </h2>
+
+    <!-- SUBHEADLINE -->
+    <p class="text-sm text-gray-300 text-center mb-10">
+      Successful reinstatements require structured policy analysis,
+      not repeated emotional appeals.
+    </p>
+
+    <!-- TABS -->
+    <div class="flex justify-between mb-8 border-b border-gray-700">
+      {steps.map((step, index) => (
+        <button
+          class={`tab-btn text-xs tracking-wider pb-3 ${
+            index === 0 ? "text-white border-b-2 border-orange-500" : "text-gray-400"
+          }`}
+          data-tab={step.id}
+        >
+          {step.title}
+        </button>
+      ))}
+    </div>
+
+    <!-- CONTENT FRAME -->
+    <div class="rounded-xl border border-gray-700 p-6 bg-[#081826]">
+
+      <!-- IMAGE -->
+      <div class="mb-6">
+        <img
+          id="tab-image"
+          src="https://placehold.co/600x350"
+          class="rounded-lg w-full cursor-pointer"
+          alt="Framework step"
+        />
+      </div>
+
+      <!-- TITLE -->
+      <h3 id="tab-title" class="text-lg font-semibold mb-4">
+        AUDIT
+      </h3>
+
+      <!-- BULLETS -->
+      <ul id="tab-bullets" class="space-y-2 text-sm text-gray-300">
+        <li>Identify the suspension trigger</li>
+        <li>Review account risk signals</li>
+        <li>Determine recovery eligibility</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script lang="ts">
+
+type Step = {
+  title: string
+  bullets: string[]
+}
+
+const steps: Record<string, Step> = {
+  audit: {
+    title: "AUDIT",
+    bullets: [
+      "Identify the suspension trigger",
+      "Review account risk signals",
+      "Determine recovery eligibility"
+    ]
+  },
+  appeal: {
+    title: "APPEAL",
+    bullets: [
+      "Prepare a structured appeal",
+      "Align explanation with policy",
+      "Submit review-ready case"
+    ]
+  },
+  restore: {
+    title: "RESTORE",
+    bullets: [
+      "Account reinstatement confirmed",
+      "Ads regain delivery capability",
+      "Access restored to campaigns"
+    ]
+  },
+  support: {
+    title: "SUPPORT",
+    bullets: [
+      "Monitor account stability",
+      "Prevent re-suspension risks",
+      "Provide post-restore guidance"
+    ]
+  }
+}
+
+const buttons = document.querySelectorAll<HTMLElement>(".tab-btn")
+const title = document.getElementById("tab-title") as HTMLElement | null
+const bullets = document.getElementById("tab-bullets") as HTMLElement | null
+
+buttons.forEach((btn) => {
+
+  btn.addEventListener("click", () => {
+
+    buttons.forEach((b) => {
+      b.classList.remove("text-white","border-orange-500","border-b-2")
+      b.classList.add("text-gray-400")
+    })
+
+    btn.classList.add("text-white","border-orange-500","border-b-2")
+    btn.classList.remove("text-gray-400")
+
+    const key = btn.dataset.tab
+
+    if (!key || !steps[key]) return
+    if (!title || !bullets) return
+
+    const tab = steps[key]
+
+    title.textContent = tab.title
+
+    bullets.innerHTML = tab.bullets
+      .map((bullet: string) => `<li>${bullet}</li>`)
+      .join("")
+  })
+
+})
+
+</script>
