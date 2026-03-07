@@ -1,0 +1,76 @@
+---
+import SectionContainer from "../../../components/ui/SectionContainer.astro";
+import CTAGroup from "../../../components/ui/CTAGroup.astro";
+
+const expectationCards = [
+  {
+    title: "Not Every Account Can Be Recovered",
+    body: "Some Google Ads suspensions can be resolved. Others may already be too heavily restricted, too heavily reviewed, or no longer eligible for successful reinstatement."
+  },
+  {
+    title: "Improper Appeals Can Make Recovery Harder",
+    body: "Repeated, emotional, or poorly structured submissions can weaken the review position and make future recovery attempts more difficult."
+  },
+  {
+    title: "Eligibility Is Assessed Before Proceeding",
+    body: "Each case should be reviewed before any next step is taken, to determine whether the suspension appears recoverable and whether submission is appropriate."
+  },
+  {
+    title: "You’ll Be Told If Recovery Looks Unlikely",
+    body: "If a case appears too limited, too risky, or unlikely to succeed, that will be explained clearly rather than oversold."
+  }
+];
+---
+
+<section class="bg-[#04101f] py-20 md:py-24">
+  <SectionContainer>
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#6ee7d8]">
+        Risk & Expectations
+      </p>
+
+      <h2 class="text-3xl font-semibold leading-tight text-white md:text-4xl">
+        Important Expectations Before Submitting an Appeal
+      </h2>
+
+      <p class="mt-5 text-base leading-7 text-white/72 md:text-lg">
+        Google Ads suspension reviews follow strict internal policies. Not every
+        suspended account is eligible for reinstatement, which is why recoverability
+        should be assessed before further action is taken.
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-4 md:mt-14 md:grid-cols-2 xl:grid-cols-4">
+      {expectationCards.map((card, index) => (
+        <article
+          class="group rounded-2xl border border-white/10 bg-[#081826] p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition duration-200 hover:border-[#6ee7d8]/30 hover:bg-[#0b1d2d]"
+        >
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-[#6ee7d8]/25 bg-[#6ee7d8]/10 text-sm font-semibold text-[#6ee7d8]">
+            0{index + 1}
+          </div>
+
+          <h3 class="text-lg font-semibold leading-6 text-white">
+            {card.title}
+          </h3>
+
+          <p class="mt-4 text-sm leading-6 text-white/72 md:text-[15px]">
+            {card.body}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <div class="mx-auto mt-12 max-w-3xl text-center md:mt-14">
+      <p class="mb-6 text-sm leading-6 text-white/60 md:text-base">
+        The purpose of the review is to assess recoverability before additional
+        mistakes are made and to determine whether a structured appeal path is still viable.
+      </p>
+
+      <CTAGroup
+        href="https://calendly.com/gianluca-adrestore/30min-consultation"
+        text="Book Suspension Review"
+        assessmentText="Free 30-Minute Live Account Assessment"
+      />
+    </div>
+  </SectionContainer>
+</section>

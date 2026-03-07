@@ -6,12 +6,6 @@ import CTAGroup from "../../../components/ui/CTAGroup.astro";
 
 <div class="max-w-6xl mx-auto px-6">
 
-<!-- SECTION LABEL -->
-
-<p class="text-[#3BA6FF] tracking-[0.25em] text-xs text-center mb-4">
-FOUR-STEP FRAMEWORK
-</p>
-
 <!-- HEADER -->
 
 <h2 class="text-3xl md:text-4xl font-semibold text-center mb-4">
@@ -23,28 +17,28 @@ A structured approach to Google Ads reinstatement — from identifying the suspe
 </p>
 
 
-<!-- NAVIGATION -->
+<!-- PROCESS NAV -->
 
-<div class="framework-nav flex justify-center gap-10 mb-16 text-sm font-medium">
+<div class="framework-nav flex justify-center gap-8 mb-16 text-xs tracking-wider">
 
 <button class="tab-btn active" data-tab="audit">
+<span class="dot"></span>
 AUDIT
-<span class="underline audit"></span>
 </button>
 
 <button class="tab-btn" data-tab="appeal">
+<span class="dot"></span>
 APPEAL
-<span class="underline appeal"></span>
 </button>
 
 <button class="tab-btn" data-tab="restore">
+<span class="dot"></span>
 RESTORE
-<span class="underline restore"></span>
 </button>
 
 <button class="tab-btn" data-tab="support">
+<span class="dot"></span>
 SUPPORT
-<span class="underline support"></span>
 </button>
 
 </div>
@@ -53,36 +47,26 @@ SUPPORT
 
 <!-- FRAME -->
 
-<div
-id="framework-frame"
-class="grid md:grid-cols-2 gap-12 items-center
+<div id="framework-frame"
+class="grid md:grid-cols-2 gap-10 items-center
 rounded-2xl border border-gray-700
 bg-[#081826]
-p-10 md:p-16
-shadow-[0_0_60px_rgba(0,0,0,0.45)]"
->
+p-10 md:p-14
+shadow-[0_0_50px_rgba(0,0,0,0.45)]">
+
 
 <!-- TEXT SIDE -->
 
 <div>
 
-<div class="flex items-center gap-4 mb-4">
-
-<span id="step-number" class="step-number text-[#FF4D4D]">
-1.
-</span>
-
-<h3 id="tab-title" class="text-2xl font-semibold">
-Suspension Detected
+<h3 id="tab-title"
+class="text-2xl font-semibold mb-4">
+AUDIT
 </h3>
 
-</div>
-
-<p
-id="tab-description"
-class="text-gray-400 mb-8 leading-relaxed"
->
-The first step is identifying the exact policy trigger and reviewing all risk signals connected to the account.
+<p id="tab-description"
+class="text-gray-400 mb-8 leading-relaxed">
+Identify the root cause of the suspension before any appeal is submitted.
 </p>
 
 
@@ -137,15 +121,13 @@ Determine recovery eligibility
 <img
 id="tab-image"
 src="/images/Suspended.png"
-class="rounded-xl w-full cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+class="rounded-xl w-full border border-gray-700 shadow-lg cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
 alt="Suspension Evidence"
 />
 
-<p
-id="image-caption"
-class="text-xs text-gray-500 text-center mt-3"
->
-Google Ads suspension notification received.
+<p id="image-caption"
+class="text-xs text-gray-500 mt-3 text-center">
+Example suspension notice received from Google Ads.
 </p>
 
 </div>
@@ -166,6 +148,7 @@ assessmentText="Free 30-Minute Live Account Assessment"
 
 </div>
 
+
 </div>
 
 </section>
@@ -185,45 +168,27 @@ assessmentText="Free 30-Minute Live Account Assessment"
 <style>
 
 .framework-nav button{
-
-position:relative;
+display:flex;
+align-items:center;
+gap:6px;
 color:#6B7280;
-transition:0.25s;
-
+transition:.25s;
 }
 
 .framework-nav button.active{
 color:white;
 }
 
-.framework-nav .underline{
-
-position:absolute;
-left:0;
-bottom:-6px;
-height:2px;
-width:0%;
-transition:0.25s;
-
+.framework-nav .dot{
+width:6px;
+height:6px;
+border-radius:50%;
+background:#374151;
+transition:.25s;
 }
 
-.framework-nav button.active .underline{
-width:100%;
-}
-
-.underline.audit{ background:#FF4D4D; }
-.underline.appeal{ background:#FFFFFF; }
-.underline.restore{ background:#3BA6FF; }
-.underline.support{ background:#22C1A5; }
-
-
-.step-number{
-
-font-size:28px;
-font-weight:600;
-opacity:0.8;
-letter-spacing:0.05em;
-
+.framework-nav button.active .dot{
+background:#3BA6FF;
 }
 
 </style>
@@ -239,7 +204,6 @@ let animationPlayed=false
 const steps={
 
 audit:{
-step:"1.",
 color:"#FF4D4D",
 title:"Suspension Detected",
 image:"/images/Suspended.png",
@@ -253,12 +217,11 @@ bullets:[
 },
 
 appeal:{
-step:"2.",
 color:"#FFFFFF",
 title:"Structured Appeal Submitted",
 image:"/images/Appeal.png",
-caption:"Policy-aligned appeal submitted to Google.",
-description:"A structured appeal aligned with Google's policy framework is prepared for review.",
+caption:"Policy-aligned appeal prepared for Google review.",
+description:"A structured appeal is prepared that aligns directly with Google's policy framework and reviewer expectations.",
 bullets:[
 "Prepare policy-aligned explanation",
 "Document compliance corrections",
@@ -267,12 +230,11 @@ bullets:[
 },
 
 restore:{
-step:"3.",
 color:"#3BA6FF",
 title:"Account Reinstated",
 image:"/images/Accepted.png",
 caption:"Google confirms successful reinstatement.",
-description:"Once accepted, ad delivery resumes and campaign access is restored.",
+description:"Once accepted, the account regains ad delivery capability and campaigns can resume normal operation.",
 bullets:[
 "Account reinstatement confirmed",
 "Ads regain delivery capability",
@@ -281,15 +243,14 @@ bullets:[
 },
 
 support:{
-step:"4.",
 color:"#22C1A5",
 title:"Post-Restore Stability",
-image:"/images/Accepted.png",
+image:"/images/Dashboard.png",
 caption:"Monitoring and safeguarding account health.",
-description:"After reinstatement the account is monitored to prevent future suspension risks.",
+description:"After reinstatement we monitor stability and ensure future policy risks are prevented.",
 bullets:[
 "Monitor account stability",
-"Prevent re-suspension risks",
+"Prevent future suspension signals",
 "Provide ongoing account guidance"
 ]
 }
@@ -304,7 +265,6 @@ const image=document.getElementById("tab-image")
 const caption=document.getElementById("image-caption")
 const title=document.getElementById("tab-title")
 const description=document.getElementById("tab-description")
-const stepNumber=document.getElementById("step-number")
 
 
 
@@ -320,9 +280,6 @@ image.src=step.image
 caption.textContent=step.caption
 title.textContent=step.title
 description.textContent=step.description
-
-stepNumber.textContent=step.step
-stepNumber.style.color=step.color
 
 bulletsContainer.innerHTML=step.bullets.map(b=>`
 
@@ -366,27 +323,6 @@ bullet.querySelector(".bullet-text").classList.replace("text-gray-500","text-whi
 buttons.forEach(btn=>{
 btn.addEventListener("click",()=>activateTab(btn))
 })
-
-
-
-/* SCROLL TRIGGER */
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting && !animationPlayed){
-
-animateBullets()
-animationPlayed=true
-
-}
-
-})
-
-},{threshold:0.75})
-
-observer.observe(document.getElementById("framework-frame"))
 
 
 

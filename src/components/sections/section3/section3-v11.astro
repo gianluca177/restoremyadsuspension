@@ -23,28 +23,28 @@ A structured approach to Google Ads reinstatement — from identifying the suspe
 </p>
 
 
-<!-- NAVIGATION -->
+<!-- STEP NAV -->
 
-<div class="framework-nav flex justify-center gap-10 mb-16 text-sm font-medium">
+<div class="framework-nav flex justify-center gap-10 mb-16 text-sm">
 
 <button class="tab-btn active" data-tab="audit">
+<span class="step-number audit">1</span>
 AUDIT
-<span class="underline audit"></span>
 </button>
 
 <button class="tab-btn" data-tab="appeal">
+<span class="step-number appeal">2</span>
 APPEAL
-<span class="underline appeal"></span>
 </button>
 
 <button class="tab-btn" data-tab="restore">
+<span class="step-number restore">3</span>
 RESTORE
-<span class="underline restore"></span>
 </button>
 
 <button class="tab-btn" data-tab="support">
+<span class="step-number support">4</span>
 SUPPORT
-<span class="underline support"></span>
 </button>
 
 </div>
@@ -53,35 +53,25 @@ SUPPORT
 
 <!-- FRAME -->
 
-<div
-id="framework-frame"
+<div id="framework-frame"
 class="grid md:grid-cols-2 gap-12 items-center
 rounded-2xl border border-gray-700
 bg-[#081826]
 p-10 md:p-16
-shadow-[0_0_60px_rgba(0,0,0,0.45)]"
->
+shadow-[0_0_60px_rgba(0,0,0,0.45)]">
+
 
 <!-- TEXT SIDE -->
 
 <div>
 
-<div class="flex items-center gap-4 mb-4">
-
-<span id="step-number" class="step-number text-[#FF4D4D]">
-1.
-</span>
-
-<h3 id="tab-title" class="text-2xl font-semibold">
+<h3 id="tab-title"
+class="text-2xl font-semibold mb-4">
 Suspension Detected
 </h3>
 
-</div>
-
-<p
-id="tab-description"
-class="text-gray-400 mb-8 leading-relaxed"
->
+<p id="tab-description"
+class="text-gray-400 mb-8 leading-relaxed">
 The first step is identifying the exact policy trigger and reviewing all risk signals connected to the account.
 </p>
 
@@ -141,10 +131,8 @@ class="rounded-xl w-full cursor-pointer transition-transform duration-300 hover:
 alt="Suspension Evidence"
 />
 
-<p
-id="image-caption"
-class="text-xs text-gray-500 text-center mt-3"
->
+<p id="image-caption"
+class="text-xs text-gray-500 text-center mt-[-20px]">
 Google Ads suspension notification received.
 </p>
 
@@ -166,6 +154,7 @@ assessmentText="Free 30-Minute Live Account Assessment"
 
 </div>
 
+
 </div>
 
 </section>
@@ -185,45 +174,44 @@ assessmentText="Free 30-Minute Live Account Assessment"
 <style>
 
 .framework-nav button{
-
-position:relative;
+display:flex;
+align-items:center;
+gap:8px;
 color:#6B7280;
-transition:0.25s;
-
+transition:.25s;
+font-weight:500;
 }
 
 .framework-nav button.active{
 color:white;
 }
 
-.framework-nav .underline{
-
-position:absolute;
-left:0;
-bottom:-6px;
-height:2px;
-width:0%;
-transition:0.25s;
-
-}
-
-.framework-nav button.active .underline{
-width:100%;
-}
-
-.underline.audit{ background:#FF4D4D; }
-.underline.appeal{ background:#FFFFFF; }
-.underline.restore{ background:#3BA6FF; }
-.underline.support{ background:#22C1A5; }
-
-
 .step-number{
-
-font-size:28px;
+display:flex;
+align-items:center;
+justify-content:center;
+width:22px;
+height:22px;
+border-radius:50%;
+font-size:12px;
 font-weight:600;
-opacity:0.8;
-letter-spacing:0.05em;
+}
 
+.step-number.audit{
+background:#FF4D4D;
+}
+
+.step-number.appeal{
+background:#ffffff;
+color:#000;
+}
+
+.step-number.restore{
+background:#3BA6FF;
+}
+
+.step-number.support{
+background:#22C1A5;
 }
 
 </style>
@@ -239,7 +227,6 @@ let animationPlayed=false
 const steps={
 
 audit:{
-step:"1.",
 color:"#FF4D4D",
 title:"Suspension Detected",
 image:"/images/Suspended.png",
@@ -253,7 +240,6 @@ bullets:[
 },
 
 appeal:{
-step:"2.",
 color:"#FFFFFF",
 title:"Structured Appeal Submitted",
 image:"/images/Appeal.png",
@@ -267,7 +253,6 @@ bullets:[
 },
 
 restore:{
-step:"3.",
 color:"#3BA6FF",
 title:"Account Reinstated",
 image:"/images/Accepted.png",
@@ -281,7 +266,6 @@ bullets:[
 },
 
 support:{
-step:"4.",
 color:"#22C1A5",
 title:"Post-Restore Stability",
 image:"/images/Accepted.png",
@@ -304,7 +288,6 @@ const image=document.getElementById("tab-image")
 const caption=document.getElementById("image-caption")
 const title=document.getElementById("tab-title")
 const description=document.getElementById("tab-description")
-const stepNumber=document.getElementById("step-number")
 
 
 
@@ -320,9 +303,6 @@ image.src=step.image
 caption.textContent=step.caption
 title.textContent=step.title
 description.textContent=step.description
-
-stepNumber.textContent=step.step
-stepNumber.style.color=step.color
 
 bulletsContainer.innerHTML=step.bullets.map(b=>`
 
@@ -369,7 +349,7 @@ btn.addEventListener("click",()=>activateTab(btn))
 
 
 
-/* SCROLL TRIGGER */
+/* SCROLL TRIGGER FOR FIRST STEP */
 
 const observer=new IntersectionObserver(entries=>{
 

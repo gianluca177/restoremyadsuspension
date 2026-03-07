@@ -1,11 +1,11 @@
 ---
-import PrimaryButton from './PrimaryButton.astro';
-import LiveConsultIcon from './LiveConsultIcon.astro';
+import PrimaryButton from "./PrimaryButton.astro";
+import LiveConsultIcon from "./LiveConsultIcon.astro";
 
 interface Props {
-  href: string;
-  text: string;
-  assessmentText: string;
+  href?: string;
+  text?: string;
+  assessmentText?: string;
 }
 
 const {
@@ -25,24 +25,21 @@ const {
 </div>
 
 <style>
-.ctaGroup{
-  margin-top:14px;
+.ctaGroup {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.assessment{
-  display:flex;
-  align-items:center;
-  justify-content:center;   /* mobile centered */
-  gap:8px;
-  margin-top:10px;
-  font-size:13px;
-  opacity:.85;
-}
-
-@media(min-width:980px){
-  .assessment{
-    justify-content:flex-start; /* desktop left-aligned */
-    text-align: left;
-  }
+.assessment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 13px;
+  opacity: 0.85;
+  text-align: center;
 }
 </style>
