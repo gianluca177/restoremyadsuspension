@@ -3,53 +3,15 @@ import SectionContainer from "../../../components/ui/SectionContainer.astro";
 import CTAGroup from "../../../components/ui/CTAGroup.astro";
 
 const proofImages = [
-
-{
-src: "/images/proof/google-ads-appeal-success-suspicious-payments.png",
-label: "Appeal Successful — Suspicious Payments"
-},
-
-{
-src: "/images/proof/google-ads-account-reactivated-confirmation.png",
-label: "Account Reactivated"
-},
-
-{
-src: "/images/proof/google-ads-account-reactivated-notification.png",
-label: "Reactivation Confirmation"
-},
-
-{
-src: "/images/proof/google-ads-support-appeal-success-email.png",
-label: "Support Confirmation Email"
-},
-
-{
-src: "/images/proof/google-ads-appeal-success-circumventing-systems.png",
-label: "Appeal Successful — Circumventing Systems"
-},
-
-{
-src: "/images/proof/google-ads-business-operations-verification-success.png",
-label: "Business Operations Verification Completed"
-},
-
-{
-src: "/images/proof/google-ads-account-reactivated-appeal-confirmation.png",
-label: "Account Reinstated After Appeal"
-},
-
-{
-src: "/images/proof/google-ads-account-reactivated-email-darkmode.png",
-label: "Account Reactivated Notification"
-},
-
-{
-src: "/images/proof/google-ads-account-reactivated-email.png",
-label: "Ads Delivery Restored"
-
-}
-
+  { src: "/images/proof1.png", label: "Reinstatement Confirmation" },
+  { src: "/images/proof2.png", label: "Account Access Restored" },
+  { src: "/images/proof3.png", label: "Appeal Accepted" },
+  { src: "/images/proof4.png", label: "Policy Review Completed" },
+  { src: "/images/proof5.png", label: "Suspension Removed" },
+  { src: "/images/proof6.png", label: "Account Reactivated" },
+  { src: "/images/proof7.png", label: "Appeal Decision Email" },
+  { src: "/images/proof8.png", label: "Account Enabled Again" },
+  { src: "/images/proof9.png", label: "Ads Delivery Restored" }
 ];
 ---
 
@@ -103,7 +65,7 @@ class="proof-image"
 
 <!-- CTA -->
 
-<div class="mt-16 flex flex-col items-center justify-center text-center">
+<div class="mt-16 text-center">
 
 <CTAGroup
 href="https://calendly.com/gianluca-adrestore/30min-consultation"
@@ -118,9 +80,9 @@ assessmentText="Free 30-Minute Live Account Assessment"
 
 <!-- LIGHTBOX -->
 
-<div id="lightbox" class="lightbox">
+<div id="lightbox" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-6">
 
-<img id="lightbox-img" class="lightbox-image"/>
+<img id="lightbox-img" class="max-w-full max-h-full rounded-lg"/>
 
 </div>
 
@@ -150,34 +112,6 @@ font-size:13px;
 color:rgba(255,255,255,.65);
 }
 
-
-/* LIGHTBOX */
-
-.lightbox{
-position:fixed;
-inset:0;
-display:flex;
-align-items:center;
-justify-content:center;
-background:rgba(0,0,0,.85);
-z-index:50;
-opacity:0;
-pointer-events:none;
-transition:opacity .2s ease;
-padding:2rem;
-}
-
-.lightbox.active{
-opacity:1;
-pointer-events:auto;
-}
-
-.lightbox-image{
-max-width:95%;
-max-height:95%;
-border-radius:12px;
-}
-
 </style>
 
 
@@ -189,20 +123,22 @@ const images=document.querySelectorAll(".proof-image")
 const lightbox=document.getElementById("lightbox")
 const lightboxImg=document.getElementById("lightbox-img")
 
+
 images.forEach(img=>{
 
 img.addEventListener("click",()=>{
 
 lightboxImg.src=img.src
-lightbox.classList.add("active")
+lightbox.classList.remove("hidden")
 
 })
 
 })
+
 
 lightbox.addEventListener("click",()=>{
 
-lightbox.classList.remove("active")
+lightbox.classList.add("hidden")
 
 })
 
