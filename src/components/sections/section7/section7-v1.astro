@@ -1,0 +1,179 @@
+---
+import SectionContainer from "../../ui/SectionContainer.astro";
+import CTAGroup from "../../ui/CTAGroup.astro";
+
+const faqs = [
+  {
+    q: "Can suspended Google Ads accounts actually be restored?",
+    a: "Yes — many suspended accounts can be restored when the underlying policy trigger is correctly identified and addressed. However, not every suspension is recoverable. Some accounts become permanently ineligible if multiple incorrect appeals were submitted before the real issue was fixed."
+  },
+  {
+    q: "How do I know if my account is recoverable?",
+    a: "During the Suspension Eligibility Review we inspect the suspension reason, account structure, policy signals, website compliance, and past appeal attempts. From this we determine whether the account is likely recoverable, possibly recoverable, or unlikely to be recovered."
+  },
+  {
+    q: "Do you need login access to my Google Ads account?",
+    a: "No. Access is typically provided through Google Ads Manager (MCC) access which allows account inspection without requiring your password. You remain in full control of your account."
+  },
+  {
+    q: "What happens during the 30-minute suspension review?",
+    a: "During the consultation we inspect the suspension trigger, review account history, check website compliance, identify policy risks, and determine whether recovery appears realistic."
+  },
+  {
+    q: "How long does Google take to review suspension appeals?",
+    a: "Google review times vary depending on the suspension category. Most reviews take between 3–7 days, while complex policy cases may take up to 14 days."
+  },
+  {
+    q: "What if my account cannot be restored?",
+    a: "If the suspension appears unlikely to be recoverable we will tell you during the eligibility review before any work begins."
+  },
+  {
+    q: "Why do so many Google Ads appeals fail?",
+    a: "Most appeals fail because the real policy trigger was never identified. Submitting emotional explanations, repeating appeals, or ignoring website compliance issues often results in rejection."
+  },
+  {
+    q: "Can repeated appeals make recovery harder?",
+    a: "Yes. Submitting multiple appeals without fixing the root cause can reduce the likelihood of future reviews and in some cases Google may stop reviewing appeals entirely."
+  },
+  {
+    q: "What does the recovery process cost?",
+    a: "Pricing depends on the suspension type and case complexity. During the consultation we explain whether recovery appears realistic and what the next steps would involve."
+  },
+  {
+    q: "What information should I prepare before the consultation?",
+    a: "Ideally you should have your Google Ads Customer ID, affected domain, and the suspension email from Google. If you don't have everything available we can still review the situation during the call."
+  }
+];
+---
+
+<section class="bg-[#04101f] py-24 md:py-32 text-white">
+
+  <SectionContainer>
+
+    <!-- Section Label -->
+    <p class="text-[#3BA6FF] text-xs tracking-[0.25em] text-center mb-4">
+      FREQUENTLY ASKED QUESTIONS
+    </p>
+
+    <!-- Heading -->
+    <h2 class="text-center text-3xl md:text-4xl font-semibold mb-4">
+      Common Questions About Google Ads Suspension Recovery
+    </h2>
+
+    <p class="text-center text-white/70 max-w-2xl mx-auto mb-14">
+      Clear answers about the suspension review process, recovery eligibility,
+      and what to expect during your consultation.
+    </p>
+
+    <!-- FAQ GRID -->
+    <div class="max-w-4xl mx-auto space-y-4">
+
+      {faqs.map((faq, index) => (
+        <div
+          class="faq-card bg-[#081826] border border-white/10 rounded-2xl overflow-hidden"
+        >
+
+          <button
+            class="faq-toggle w-full text-left flex justify-between items-center px-6 py-5"
+            data-index={index}
+          >
+            <span class="font-medium pr-6">{faq.q}</span>
+
+            <svg
+              class="faq-icon w-5 h-5 shrink-0 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+
+          </button>
+
+          <div class="faq-content hidden px-6 pb-6 text-white/70">
+            {faq.a}
+          </div>
+
+        </div>
+      ))}
+
+    </div>
+
+    <!-- CTA UNDER FAQ -->
+    <div class="text-center mt-16">
+
+      <p class="text-white/70 mb-6">
+        Still unsure if your account can be restored?
+      </p>
+
+      <CTAGroup
+        href="https://calendly.com/gianluca-adrestore/30min-consultation"
+        text="Book Suspension Review"
+        assessmentText="Free 30-Minute Live Account Assessment"
+      />
+
+    </div>
+
+  </SectionContainer>
+
+</section>
+
+<!-- FAQ Accordion Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const toggles = document.querySelectorAll(".faq-toggle");
+
+  toggles.forEach((btn) => {
+    btn.addEventListener("click", () => {
+
+      const card = btn.closest(".faq-card");
+      if (!card) return;
+
+      const content = card.querySelector(".faq-content");
+      const icon = card.querySelector(".faq-icon");
+
+      if (!(content instanceof HTMLElement)) return;
+      if (!(icon instanceof HTMLElement)) return;
+
+      const isOpen = !content.classList.contains("hidden");
+
+      // close all
+      document.querySelectorAll(".faq-content").forEach((el) => {
+        if (el instanceof HTMLElement) el.classList.add("hidden");
+      });
+
+      document.querySelectorAll(".faq-icon").forEach((el) => {
+        if (el instanceof HTMLElement) el.classList.remove("rotate-180");
+      });
+
+      // open clicked
+      if (!isOpen) {
+        content.classList.remove("hidden");
+        icon.classList.add("rotate-180");
+      }
+
+    });
+  });
+
+});
+</script>
+
+
+<!-- FAQ SEO STRUCTURED DATA -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  })}
+/>
