@@ -184,17 +184,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("suspension-review-form") as HTMLFormElement;
   if (!form) return;
 
-    const submitButton = form.querySelector("button[type='submit']") as HTMLButtonElement;
-
-
   form.addEventListener("submit", function(e) {
     e.preventDefault();
-        // loading state
-    if (submitButton) {
-      submitButton.textContent = "Preparing Scheduling...";
-      submitButton.disabled = true;
-      submitButton.classList.add("opacity-70", "cursor-not-allowed");
-    }
 
     const formData = new FormData(form);
 
