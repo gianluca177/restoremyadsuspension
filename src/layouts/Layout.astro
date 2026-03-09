@@ -1,31 +1,95 @@
 ---
 import '../styles/global.css';
 
+import NavBar from "../components/sections/NavBar/NavBar.astro";
+import Footer from "../components/ui/Footer.astro";
+
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = 'AdRestore — Suspension Recovery' } = Astro.props;
+const {
+  title = "AdRestore — Google Ads Suspension Recovery",
+  description = "Professional Google Ads suspension recovery service helping advertisers restore suspended accounts through structured policy-aligned appeals."
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
+
   <head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Professional Google Ads suspension recovery service" />
+
+    <!-- SEO -->
+
     <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Ad Restore Ltd",
+      "url": "https://adrestore.uk",
+      "logo": "https://adrestore.uk/images/ad_restore_logo.jpg",
+      "description": "Ad Restore provides consulting services for Google Ads suspension recovery and structured appeal preparation.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "18 Bellevue Street",
+        "addressLocality": "Dumfries",
+        "addressCountry": "GB",
+        "postalCode": "DG1 3EJ"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Gianluca"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@adrestore.uk",
+        "areaServed": "Worldwide"
+      }
+    }
+    </script>
+
+    <!-- Open Graph -->
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
 
     <!-- Fonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
+
   </head>
 
   <body class="bg-[#06162b] text-white font-sans">
-    <slot />
+
+    <!-- Navbar -->
+
+    <NavBar />
+
+    <!-- Page Content -->
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+
+    <Footer />
+
   </body>
+
 </html>
