@@ -1,0 +1,215 @@
+<form id="suspension-review-form" class="space-y-6">
+
+  <!-- Name + Email -->
+  <div class="grid md:grid-cols-2 gap-5">
+
+    <div>
+      <label class="block text-sm text-white/70 mb-2">
+        Name *
+      </label>
+      <input
+        type="text"
+        name="name"
+        required
+        class="w-full rounded-lg bg-[#081826] border border-white/10 text-white px-4 py-3 focus:border-[#3BA6FF] focus:ring-0"
+      />
+    </div>
+
+    <div>
+      <label class="block text-sm text-white/70 mb-2">
+        Email *
+      </label>
+      <input
+        type="email"
+        name="email"
+        required
+        class="w-full rounded-lg bg-[#081826] border border-white/10 text-white px-4 py-3 focus:border-[#3BA6FF] focus:ring-0"
+      />
+    </div>
+
+  </div>
+
+  <!-- Ads ID + Domain -->
+
+  <div class="grid md:grid-cols-2 gap-5">
+
+    <div>
+      <label class="block text-sm text-white/70 mb-2">
+        Google Ads Customer ID *
+      </label>
+      <input
+        type="text"
+        name="adsId"
+        placeholder="123-456-7890"
+        required
+        class="w-full rounded-lg bg-[#081826] border border-white/10 text-white px-4 py-3 focus:border-[#3BA6FF]"
+      />
+    </div>
+
+    <div>
+      <label class="block text-sm text-white/70 mb-2">
+        Affected Domain(s) *
+      </label>
+      <input
+        type="text"
+        name="domain"
+        placeholder="example.com"
+        required
+        class="w-full rounded-lg bg-[#081826] border border-white/10 text-white px-4 py-3 focus:border-[#3BA6FF]"
+      />
+    </div>
+
+  </div>
+
+  <!-- Service Issue -->
+
+  <div>
+    <label class="block text-sm text-white/70 mb-2">
+      Service / Issue *
+    </label>
+
+    <select
+      name="issue"
+      required
+      class="w-full rounded-lg bg-[#081826] border border-white/10 text-white px-4 py-3 focus:border-[#3BA6FF]"
+    >
+      <option value="">Select issue</option>
+      <option>Circumventing Systems Policy</option>
+      <option>Suspicious Payments Policy</option>
+      <option>Unacceptable Business Practices Policy</option>
+      <option>Business / Identity Verification Issues</option>
+      <option>Merchant Center Suspension</option>
+      <option>Multiple / Repeat Suspensions</option>
+      <option>Not Sure</option>
+    </select>
+  </div>
+
+  <!-- Contact -->
+
+  <div>
+    <label class="block text-sm text-white/70 mb-2">
+      Contact Number (optional)
+    </label>
+    <input
+      type="tel"
+      name="phone"
+      class="w-full rounded-lg bg-[#081826] border border-white/10 text-white px-4 py-3 focus:border-[#3BA6FF]"
+    />
+  </div>
+
+  <!-- Description -->
+
+  <div>
+    <label class="block text-sm text-white/70 mb-2">
+      Describe the issue *
+    </label>
+
+    <textarea
+      name="description"
+      rows="4"
+      required
+      class="w-full rounded-lg bg-[#081826] border border-white/10 text-white px-4 py-3 focus:border-[#3BA6FF]"
+    ></textarea>
+  </div>
+
+  <!-- Budget -->
+
+  <fieldset>
+    <legend class="block text-sm text-white/70 mb-3">
+      Monthly Google Ads Budget *
+    </legend>
+
+    <div class="space-y-2 text-white/80">
+
+      <label class="flex items-center gap-2">
+        <input type="radio" name="budget" value="under-1000" required />
+        Under £1,000
+      </label>
+
+      <label class="flex items-center gap-2">
+        <input type="radio" name="budget" value="1000-5000" />
+        £1,000 – £5,000
+      </label>
+
+      <label class="flex items-center gap-2">
+        <input type="radio" name="budget" value="5000-20000" />
+        £5,000 – £20,000
+      </label>
+
+      <label class="flex items-center gap-2">
+        <input type="radio" name="budget" value="20000+" />
+        £20,000+
+      </label>
+
+    </div>
+
+  </fieldset>
+
+  <!-- Agreement -->
+
+  <div class="flex items-start gap-3 text-sm text-white/70">
+
+    <input
+      type="checkbox"
+      name="agreement"
+      required
+      class="mt-1"
+    />
+
+    <p>
+      I understand that a live screen share is required for the eligibility
+      assessment.
+    </p>
+
+  </div>
+
+  <!-- Submit -->
+
+  <button
+    type="submit"
+    class="w-full rounded-full bg-gradient-to-r from-[#3BA6FF] to-[#60C3FF] py-4 text-white font-semibold hover:opacity-90 transition"
+  >
+    Continue to Schedule
+  </button>
+
+</form>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const form = document.getElementById("suspension-review-form") as HTMLFormElement;
+  if (!form) return;
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const name = String(formData.get("name") || "");
+    const email = String(formData.get("email") || "");
+    const adsId = String(formData.get("adsId") || "");
+    const domain = String(formData.get("domain") || "");
+    const issue = String(formData.get("issue") || "");
+    const phone = String(formData.get("phone") || "");
+    const description = String(formData.get("description") || "");
+    const budget = String(formData.get("budget") || "");
+
+    const baseUrl = "https://calendly.com/gianluca-adrestore/30min-consultation";
+
+    const calendlyUrl =
+      baseUrl +
+      "?name=" + encodeURIComponent(name) +
+      "&email=" + encodeURIComponent(email) +
+      "&a1=" + encodeURIComponent(adsId) +
+      "&a2=" + encodeURIComponent(domain) +
+      "&a3=" + encodeURIComponent(issue) +
+      "&a4=" + encodeURIComponent(phone) +
+      "&a5=" + encodeURIComponent(description) +
+      "&a6=" + encodeURIComponent(budget);
+
+    window.location.href = calendlyUrl;
+
+  });
+
+});
+</script>

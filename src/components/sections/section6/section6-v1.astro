@@ -1,0 +1,145 @@
+---
+import SectionContainer from "../../ui/SectionContainer.astro";
+import CTAGroup from "../../ui/CTAGroup.astro";
+---
+
+<section class="bg-[#04101f] py-24 md:py-32 spotlight">
+  <SectionContainer>
+    <div class="mx-auto max-w-6xl">
+      <!-- Section label -->
+      <p class="text-[#3BA6FF] tracking-[0.25em] text-xs text-center mb-4">
+        CONSULTATION
+      </p>
+
+      <!-- Heading -->
+      <div class="max-w-3xl mx-auto text-center mb-14">
+        <h2 class="text-white text-3xl md:text-5xl font-semibold leading-tight tracking-tight">
+          Book Your Free Suspension Eligibility Review
+        </h2>
+
+        <p class="mt-5 text-white/72 text-base md:text-lg leading-8">
+          In a 30-minute consultation, we review the suspension, assess the likely
+          policy trigger, and determine whether recovery is realistically possible.
+          If the account is eligible, you leave with clear next steps.
+        </p>
+      </div>
+
+      <!-- Main content -->
+      <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-stretch">
+        <!-- Left: what happens -->
+        <div class="rounded-3xl border border-white/10 bg-[#081826] p-6 md:p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
+          <h3 class="text-white text-xl md:text-2xl font-semibold mb-6">
+            What happens on the call
+          </h3>
+
+          <div class="space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#3BA6FF]/12 border border-[#3BA6FF]/25 text-[#3BA6FF] font-semibold">
+                1
+              </div>
+              <div>
+                <h4 class="text-white font-medium text-base md:text-lg">
+                  Account Review
+                </h4>
+                <p class="mt-1 text-white/68 leading-7 text-sm md:text-base">
+                  We inspect the suspension context, account history, and visible
+                  business signals to understand what may have triggered the issue.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#3BA6FF]/12 border border-[#3BA6FF]/25 text-[#3BA6FF] font-semibold">
+                2
+              </div>
+              <div>
+                <h4 class="text-white font-medium text-base md:text-lg">
+                  Recovery Assessment
+                </h4>
+                <p class="mt-1 text-white/68 leading-7 text-sm md:text-base">
+                  We assess likely recoverability and identify whether the case
+                  appears viable before any structured appeal work begins.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#3BA6FF]/12 border border-[#3BA6FF]/25 text-[#3BA6FF] font-semibold">
+                3
+              </div>
+              <div>
+                <h4 class="text-white font-medium text-base md:text-lg">
+                  Clear Next Steps
+                </h4>
+                <p class="mt-1 text-white/68 leading-7 text-sm md:text-base">
+                  You get a direct outline of what should happen next, whether that
+                  means proceeding with recovery work or being told honestly that
+                  the case is unlikely to succeed.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: reassurance / decision card -->
+        <div class="rounded-3xl border border-white/10 bg-[linear-gradient(180deg,rgba(59,166,255,0.10),rgba(8,24,38,1))] p-6 md:p-8">
+          <h3 class="text-white text-xl md:text-2xl font-semibold mb-5">
+            What this review is designed to do
+          </h3>
+
+          <div class="space-y-3 text-sm md:text-base leading-7 text-white/72">
+            <p>
+              This is not a generic sales call. It is a live suspension eligibility
+              review focused on clarity, risk, and next-step direction.
+            </p>
+
+            <p>
+              We look at whether the suspension is potentially recoverable, what
+              documentation or structural fixes may be required, and whether it
+              makes sense to proceed.
+            </p>
+
+            <p>
+              If the account does not appear viable, that will be stated directly.
+            </p>
+          </div>
+
+          <div class="my-7 h-px w-full bg-white/10"></div>
+
+          <ul class="space-y-3 text-sm md:text-base text-white/80">
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-2 w-2 rounded-full bg-[#3BA6FF]"></span>
+              <span>30-minute live review</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-2 w-2 rounded-full bg-[#3BA6FF]"></span>
+              <span>Policy trigger assessment</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-2 w-2 rounded-full bg-[#3BA6FF]"></span>
+              <span>Recoverability determination</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-2 w-2 rounded-full bg-[#3BA6FF]"></span>
+              <span>Structured next-step outline</span>
+            </li>
+          </ul>
+
+          <p class="mt-7 text-xs md:text-sm text-white/50 leading-6">
+            Due to manual case preparation, we review a limited number of new
+            suspension cases each week.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-12 flex justify-center">
+        <CTAGroup
+          href="https://calendly.com/gianluca-adrestore/30min-consultation"
+          text="Book Suspension Review"
+          assessmentText="Free 30-Minute Live Account Assessment"
+        />
+      </div>
+    </div>
+  </SectionContainer>
+</section>
