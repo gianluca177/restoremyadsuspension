@@ -4,7 +4,7 @@
   "use strict";
 
   // CONFIG
-  const SITE_ID = "101492693";
+  const SITE_ID = "101503008";
   const BEACON_PREFIX = "/5d68871ccab069b594";
   const HANDOFF_MS = 120;
 
