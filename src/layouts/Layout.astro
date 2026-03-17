@@ -18,78 +18,79 @@ const {
 <!doctype html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO -->
+<!-- SEO -->
 
-    <title>{title}</title>
-    <meta name="description" content={description} />
+<title>{title}</title>
+<meta name="description" content={description} />
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Ad Restore Ltd",
-      "url": "https://adrestore.uk",
-      "logo": "https://adrestore.uk/images/ad_restore_logo.jpg",
-      "description": "Ad Restore provides consulting services for Google Ads suspension recovery and structured appeal preparation.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "18 Bellevue Street",
-        "addressLocality": "Dumfries",
-        "addressCountry": "GB",
-        "postalCode": "DG1 3EJ"
-      },
-      "founder": {
-        "@type": "Person",
-        "name": "Gianluca"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "email": "support@adrestore.uk",
-        "areaServed": "Worldwide"
-      }
-    }
-    </script>
+<!-- CLICKY FIRST-PARTY LOADER -->
+ <!-- Analytics / Tracking -->
+    <script src="/scripts/clicky-loader.js" defer></script>
+    <script src="/scripts/clicky-extras.js" defer></script>
+    <script src="/scripts/clicky-actions.js" defer></script>
+    
+<!-- Organization Schema -->
 
-    <!-- Open Graph -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ad Restore Ltd",
+  "url": "https://adrestore.uk",
+  "logo": "https://adrestore.uk/images/ad_restore_logo.jpg",
+  "description": "Ad Restore provides consulting services for Google Ads suspension recovery and structured appeal preparation.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "18 Bellevue Street",
+    "addressLocality": "Dumfries",
+    "addressCountry": "GB",
+    "postalCode": "DG1 3EJ"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Gianluca"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "support@adrestore.uk",
+    "areaServed": "Worldwide"
+  }
+}
+</script>
 
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+<!-- Open Graph -->
 
-    <!-- Fonts -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- Fonts -->
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  </head>
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
+rel="stylesheet"
+/>
 
-  <body class="bg-[#06162b] text-white font-sans">
+</head>
 
-    <!-- Navbar -->
+<body class="bg-[#06162b] text-white font-sans">
 
-    <NavBar />
+<NavBar />
 
-    <!-- Page Content -->
+<main>
+<slot />
+</main>
 
-    <main>
-      <slot />
-    </main>
+<Footer />
 
-    <!-- Footer -->
-
-    <Footer />
-
-  </body>
-
+</body>
 </html>
